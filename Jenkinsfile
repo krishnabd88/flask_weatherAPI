@@ -13,8 +13,8 @@ pipeline{
         
         stage("SonarQube Code Analysis"){
             steps{
-                withSonarQubeEnv("Sonar"){
-                    sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=wanderlust -Dsonar.projectKey=wanderlust"
+                withSonarQubeEnv("sonar-server"){
+                    sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=weatherapi -Dsonar.projectKey=weatherapi"
                 }
             }
         }
