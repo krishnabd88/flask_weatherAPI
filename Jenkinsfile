@@ -17,7 +17,12 @@ pipeline{
                     sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=weatherapi -Dsonar.projectKey=weatherapi"
                 }
             }
+        stage('Deploy to container'){
+            steps{
+                sh 'docker run -d -p 8081:8081 flask_weatherapi:letest'
+            }
         }
+
 
     }
 }           
