@@ -1,9 +1,23 @@
 pipeline{
     agent any
+    environment{
+        SONAR_HOME= tool "Sonar"
+    }
     stages{
-        stage('Deploy to container'){
+      
+        stage("Code Checkout"){
             steps{
-                sh 'docker run -d -p 8081:8081 flask_weatherapi:letest'
+                git url:"git@github.com:krishnabd88/flask_weatherAPI.git", branch:"main"
             }
         }
- }          
+        
+        stage("SonarQube Code Analysis"){
+            steps{
+                withSonarQubeEnv("Sonar-server"){
+                    sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=weatherapi -Dsonar.projectKey=weatherapi"
+                }
+            }
+        }
+
+    }
+}           
