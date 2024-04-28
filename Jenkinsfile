@@ -13,7 +13,7 @@ pipeline{
         
         stage("SonarQube Code Analysis"){
             steps{
-                withSonarQubeEnv("sonar-server"){
+                withSonarQubeEnv("sonar-scanner"){
                     sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=weatherapi -Dsonar.projectKey=weatherapi"
                 }
             }
