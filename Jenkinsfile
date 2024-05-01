@@ -25,7 +25,8 @@ pipeline{
                 sh "docker build -t krishnabd88/flask_weatherapi:latest ."
                 }
              }
-        Stage("docker deploy"){
+        
+         Stage("docker deploy"){
             Steps{
                 sh "docker run -d -t -p 8081:8081 --name weatherapi krishnabd88/flask_weatherapi:latest"
                 }
