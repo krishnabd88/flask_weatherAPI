@@ -25,10 +25,7 @@ pipeline{
                 sh "docker build -t krishnabd88/flask_weatherAPi:latest2 ."
             }
         }                 
-        
-        }
-            
-    
+                        
     }
 
 }           
