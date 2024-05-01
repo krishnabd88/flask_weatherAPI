@@ -17,8 +17,13 @@ pipeline{
                 withSonarQubeEnv("sonar-server"){
                     sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=weatherapi -Dsonar.projectKey=weatherapi"
                 }
+           
             }
-        }
 
+        stage("docker build"){
+            steps{
+                sh "docker build -t krishnabd88/flask_weatherAPi:latest2 ."
+            }
+        }                 
     }
 }           
