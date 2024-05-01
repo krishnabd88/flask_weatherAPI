@@ -27,7 +27,7 @@ pipeline{
              }
         stage("docker image scan by trivy"){
             steps{
-                sh "trivy image krishnabd88/flask_weatherapi"
+                sh "trivy image krishnabd88/flask_weatherapi --format table -o trivy-report.html"
                 }
             }
          stage("docker deploy"){
