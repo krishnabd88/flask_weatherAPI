@@ -19,7 +19,11 @@ pipeline{
                 }
               }
             }
-
+        stage("Trivy filesystem Scan"){
+            steps{
+                sh "trivy fs --format table -o trivy-fs-report.html ."
+            }
+        }
         stage("docker build"){
             steps{
                 sh "docker build -t krishnabd88/flask_weatherapi_alpine:latest ."
