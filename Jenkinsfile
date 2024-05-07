@@ -22,12 +22,12 @@ pipeline{
 
         stage("docker build"){
             steps{
-                sh "docker build -t krishnabd88/flask_weatherapi:latest ."
+                sh "docker build -t krishnabd88/flask_weatherapi_alpine:latest ."
                 }
              }
          stage("docker deploy"){
             steps{
-                sh "docker run -d -t -p 8081:8081 --name weatherapi krishnabd88/flask_weatherapi:latest"
+                sh "docker run -d -t -p 8081:8081 --name weatherapi krishnabd88/flask_weatherapi_apline:latest"
                 }
             }
         }           
