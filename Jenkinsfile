@@ -25,11 +25,6 @@ pipeline{
                 sh "docker build -t krishnabd88/flask_weatherapi:latest ."
                 }
              }
-        stage("docker image scan by trivy"){
-            steps{
-                sh "trivy image krishnabd88/flask_weatherapi --format table -o trivy-report.html"
-                }
-            }
          stage("docker deploy"){
             steps{
                 sh "docker run -d -t -p 8081:8081 --name weatherapi krishnabd88/flask_weatherapi:latest"
