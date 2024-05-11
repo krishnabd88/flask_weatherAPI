@@ -7,7 +7,7 @@ pipeline{
       
         stage("Code Checkout"){
             steps{
-                git url:"https://github.com/krishnabd88/flask_weatherAPI.git", 
+                git url:"https://github.com/krishnabd88/flask_weatherAPI_withSonarQube.git", 
                     branch:"main"
             }
         }
